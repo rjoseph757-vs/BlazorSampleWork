@@ -1,0 +1,96 @@
+@page "/Catalog/Details"
+@layout Site
+@inherits eShopLegacyWebForms.Catalog.Details
+<!-- Conversion of Title attribute (value: "Details") for Page directive not currently supported -->
+<!-- Conversion of AutoEventWireup attribute (value: "true") for Page directive not currently supported -->
+<h2 class="esh-body-title">
+    Details
+</h2>
+<div class="container">
+    <div class="row">
+        @* The following tag is not supported: <asp:Image runat="server" CssClass="col-md-6 esh-picture" ImageUrl='@("/Pics/" + product.PictureFileName)'> *@@* </asp:Image> *@
+        <dl class="col-md-6 dl-horizontal">
+            <dt>
+                Name
+            </dt>
+            <dd>
+                <label>
+                    @(product.Name)
+                </label>
+            </dd>
+            <dt>
+                Description
+            </dt>
+            <dd>
+                <label>
+                    @(product.Description)
+                </label>
+            </dd>
+            <dt>
+                Brand
+            </dt>
+            <dd>
+                <label>
+                    @(product.CatalogBrand.Brand)
+                </label>
+            </dd>
+            <dt>
+                Type
+            </dt>
+            <dd>
+                <label>
+                    @(product.CatalogType.Type)
+                </label>
+            </dd>
+            <dt>
+                Price
+            </dt>
+            <dd>
+                <label class="esh-price">
+                    @(product.Price)
+                </label>
+            </dd>
+            <dt>
+                Picture name
+            </dt>
+            <dd>
+                <label>
+                    @(product.PictureFileName)
+                </label>
+            </dd>
+            <dt>
+                Stock
+            </dt>
+            <dd>
+                <label>
+                    @(product.AvailableStock)
+                </label>
+            </dd>
+            <dt>
+                Restock
+            </dt>
+            <dd>
+                <label>
+                    @(product.RestockThreshold)
+                </label>
+            </dd>
+            <dt>
+                Max stock
+            </dt>
+            <dd>
+                <label>
+                    @(product.MaxStockThreshold)
+                </label>
+            </dd>
+        </dl>
+    </div>
+    <div class="form-actions no-color esh-link-list">
+        <a runat="server" href='@(GetRouteUrl("EditProductRoute", new {id =product.Id}))' class="esh-link-item">
+            Edit
+        </a>
+        |
+        <a runat="server" href="~" class="esh-link-item">
+            Back to list
+        </a>
+    </div>
+</div>

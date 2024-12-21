@@ -1,0 +1,104 @@
+@page "/Catalog/Edit"
+@layout Site
+@inherits eShopLegacyWebForms.Catalog.Edit
+<!-- Conversion of Title attribute (value: "Edit") for Page directive not currently supported -->
+<!-- Conversion of Debug attribute (value: "true") for Page directive not currently supported -->
+<!-- Conversion of AutoEventWireup attribute (value: "true") for Page directive not currently supported -->
+<!-- Conversion of ValidateRequest attribute (value: "false") for Page directive not currently supported -->
+<h2 class="esh-body-title">
+    Edit
+</h2>
+<div class="container">
+    <div class="row">
+        @* The following tag is not supported: <asp:Image runat="server" CssClass="col-md-6 esh-picture" ImageUrl='@("/Pics/" + product.PictureFileName)'> *@@* </asp:Image> *@
+        <div class="col-md-6 form-horizontal">
+            <div class="form-group">
+                <label class="control-label col-md-4">
+                    Name
+                </label>
+                <div class="col-md-8">
+                    <input id="Name" class="form-control" value="@(Name_Text)" type="text">
+                    @* The following tag is not supported: <asp:RequiredFieldValidator runat="server" ControlToValidate="Name" Display="Dynamic" CssClass="field-validation-valid text-danger" ErrorMessage="The Name field is required."> *@@* </asp:RequiredFieldValidator> *@
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-4">
+                    Description
+                </label>
+                <div class="col-md-8">
+                    <input id="Description" class="form-control" value="@(Description_Text)" type="text">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-4">
+                    Brand
+                </label>
+                <div class="col-md-8">
+                    @* The following tag is not supported: <asp:DropDownList ID="BrandDropDownList" runat="server" ItemType="eShopLegacyWebForms.Models.CatalogBrand" DataTextField="Brand" DataValueField="Id" CssClass="form-control"> *@@* </asp:DropDownList> *@
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-4">
+                    Type
+                </label>
+                <div class="col-md-8">
+                    @* The following tag is not supported: <asp:DropDownList ID="TypeDropDownList" runat="server" ItemType="eShopLegacyWebForms.Models.CatalogType" DataTextField="Type" DataValueField="Id" CssClass="form-control"> *@@* </asp:DropDownList> *@
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-4">
+                    Price
+                </label>
+                <div class="col-md-8">
+                    <input id="Price" class="form-control" value="@(Price_Text)" type="text">
+                    @* The following tag is not supported: <asp:RangeValidator runat="server" ControlToValidate="Price" Type="Currency" CssClass="text-danger" Display="Dynamic" MinimumValue="0" MaximumValue="1000000" ErrorMessage="The Price must be a positive number with maximum two decimals between 0 and 1 million."> *@@* </asp:RangeValidator> *@
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-4">
+                    Picture name
+                </label>
+                <div class="col-md-8">
+                    <input id="PictureFileName" class="form-control" value="@(PictureFileName_Text)" type="text" readonly="">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-4">
+                    Stock
+                </label>
+                <div class="col-md-8">
+                    <input id="Stock" class="form-control" value="@(Stock_Text)" type="text">
+                    @* The following tag is not supported: <asp:RangeValidator runat="server" ControlToValidate="Stock" Type="Integer" CssClass="text-danger" Display="Dynamic" MinimumValue="0" MaximumValue="10000000" ErrorMessage="The field Stock must be between 0 and 10 million."> *@@* </asp:RangeValidator> *@
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-4">
+                    Restock
+                </label>
+                <div class="col-md-8">
+                    <input id="Restock" class="form-control" value="@(Restock_Text)" type="text">
+                    @* The following tag is not supported: <asp:RangeValidator runat="server" ControlToValidate="Restock" Type="Integer" CssClass="text-danger" Display="Dynamic" MinimumValue="0" MaximumValue="10000000" ErrorMessage="The field Restock must be between 0 and 10 million."> *@@* </asp:RangeValidator> *@
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-4">
+                    Max stock
+                </label>
+                <div class="col-md-8">
+                    <input id="Maxstock" class="form-control" value="@(Maxstock_Text)" type="text">
+                    @* The following tag is not supported: <asp:RangeValidator runat="server" ControlToValidate="Maxstock" Type="Integer" CssClass="text-danger" Display="Dynamic" MinimumValue="0" MaximumValue="10000000" ErrorMessage="The field Max stock must be between 0 and 10 million."> *@@* </asp:RangeValidator> *@
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-12 text-right esh-button-actions">
+                    <a runat="server" href="~" class="btn esh-button esh-button-secondary">
+                        [ Cancel ]
+                    </a>
+                    <button class="btn esh-button esh-button-primary" @onclick="(args) => Save_Click(null, args)">
+                        [ Save ]
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

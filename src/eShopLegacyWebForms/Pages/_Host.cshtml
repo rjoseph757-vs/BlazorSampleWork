@@ -1,0 +1,27 @@
+@page "/"
+@namespace eShopLegacyWebForms
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unknown_app_title</title>
+    <base href="~/"/>
+    <link rel="stylesheet" href="Content\base.css" />
+    <link rel="stylesheet" href="Content\bootstrap-grid.css" />
+    <link rel="stylesheet" href="Content\bootstrap-grid.min.css" />
+    <link rel="stylesheet" href="Content\bootstrap-reboot.css" />
+    <link rel="stylesheet" href="Content\bootstrap-reboot.min.css" />
+    <link rel="stylesheet" href="Content\bootstrap.css" />
+    <link rel="stylesheet" href="Content\bootstrap.min.css" />
+    <link rel="stylesheet" href="Content\custom.css" />
+    <link rel="stylesheet" href="Content\site.css" />
+</head>
+<body>
+    <app>@(await Html.RenderComponentAsync<App>(RenderMode.ServerPrerendered))</app>
+
+    <script src="_framework/blazor.server.js"></script>
+</body>
+</html>

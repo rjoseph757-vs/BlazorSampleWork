@@ -1,0 +1,146 @@
+@page "/"
+@layout Site
+@inherits eShopLegacyWebForms._Default
+<!-- Conversion of Title attribute (value: "Home Page") for Page directive not currently supported -->
+<!-- Conversion of AutoEventWireup attribute (value: "true") for Page directive not currently supported -->
+<div class="esh-table">
+    <p class="esh-link-wrapper">
+        <a runat="server" href="@(RouteUrl.RouteName=CreateProductRoute)" class="btn esh-button esh-button-primary">
+            Create New
+        </a>
+    </p>
+    <ListView ID="productList" ItemType="eShopLegacyWebForms.Models.CatalogItem" DataSource="@(productList_DataSource)" ItemPlaceholderID="itemPlaceHolder">
+        <EmptyDataTemplate>
+            <table>
+                <tr>
+                    <td>
+                        No data was returned.
+                    </td>
+                </tr>
+            </table>
+        </EmptyDataTemplate>
+        <LayoutTemplate>
+            <table class="table">
+                <thead>
+                    <tr class="esh-table-header">
+                        <th></th>
+                        <th>
+                            Name
+                        </th>
+                        <th>
+                            Description
+                        </th>
+                        <th>
+                            Brand
+                        </th>
+                        <th>
+                            Type
+                        </th>
+                        <th>
+                            Price
+                        </th>
+                        <th>
+                            Picture name
+                        </th>
+                        <th>
+                            Stock
+                        </th>
+                        <th>
+                            Restock
+                        </th>
+                        <th>
+                            Max stock
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @itemPlaceHolder
+                </tbody>
+            </table>
+        </LayoutTemplate>
+        <ItemTemplate>
+            <tr>
+                <td>
+                    <image class="esh-thumbnail" src='/Pics/@(Item.PictureFileName)'></image>
+                </td>
+                <td>
+                    <p>
+                        @(Item.Name)
+                    </p>
+                </td>
+                <td>
+                    <p>
+                        @(Item.Description)
+                    </p>
+                </td>
+                <td>
+                    <p>
+                        @(Item.CatalogBrand.Brand)
+                    </p>
+                </td>
+                <td>
+                    <p>
+                        @(Item.CatalogType.Type)
+                    </p>
+                </td>
+                <td>
+                    <p>
+                        <span class="esh-price">
+                            @(Item.Price)
+                        </span>
+                    </p>
+                </td>
+                <td>
+                    <p>
+                        @(Item.PictureFileName)
+                    </p>
+                </td>
+                <td>
+                    <p>
+                        @(Item.AvailableStock)
+                    </p>
+                </td>
+                <td>
+                    <p>
+                        @(Item.RestockThreshold)
+                    </p>
+                </td>
+                <td>
+                    <p>
+                        @(Item.MaxStockThreshold)
+                    </p>
+                </td>
+                <td>
+                    <a class="esh-table-link" href="@(GetRouteUrl('EditProductRoute', new {id =Item.Id}))">
+                        Edit
+                    </a>
+                    |
+                    <a class="esh-table-link" href="@(GetRouteUrl('ProductDetailsRoute', new {id =Item.Id}))">
+                        Details
+                    </a>
+                    |
+                    <a class="esh-table-link" href="@(GetRouteUrl('DeleteProductRoute', new {id =Item.Id}))">
+                        Delete
+                    </a>
+                </td>
+            </tr>
+        </ItemTemplate>
+    </ListView>
+</div>
+<div class="esh-pager">
+    <div class="container">
+        <article class="esh-pager-wrapper row">
+            <nav>
+                <a id="PaginationPrevious" class="@(PaginationPrevious_CssClass)" href="@(PaginationPrevious_NavigateUrl)">
+                    Previous
+                </a>
+                <span class="esh-pager-item">
+                    Showing @(Model.ItemsPerPage) of @(Model.TotalItems) products - Page @((Model.ActualPage + 1)) - @(Model.TotalPages)
+                </span>
+                <a id="PaginationNext" class="@(PaginationNext_CssClass)" href="@(PaginationNext_NavigateUrl)">
+                    Next
+                </a>
+            </nav>
+        </article>
+    </div>
+</div>

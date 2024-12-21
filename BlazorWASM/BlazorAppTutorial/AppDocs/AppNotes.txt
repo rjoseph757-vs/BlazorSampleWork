@@ -1,0 +1,5 @@
+﻿From: https://blazorschool.com/tutorial/blazor-wasm/dotnet7/create-a-project-131966
+
+Tutorial Repo:
+https://github.com/Blazor-School/component-lifecycle-blazor-wasm-dotnet7
+
